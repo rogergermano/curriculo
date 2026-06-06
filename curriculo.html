@@ -1,0 +1,423 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Roger Germano de Jesus — Currículo Executivo</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --ink: #1a1a18;
+    --ink-mid: #3d3d3a;
+    --ink-muted: #7a7a72;
+    --ink-faint: #b8b8b0;
+    --paper: #f7f5f0;
+    --paper-warm: #ede9e0;
+    --paper-card: #ffffff;
+    --accent: #1a3a2a;
+    --accent-mid: #2d6147;
+    --accent-light: #e8f2ec;
+    --accent-bright: #3d8b5e;
+    --amber: #c47c1a;
+    --amber-light: #fdf3e3;
+    --border: rgba(26,26,24,0.10);
+    --shadow: 0 2px 16px rgba(26,26,24,0.08);
+    --radius: 10px;
+    --radius-lg: 16px;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    font-size: 15px;
+    line-height: 1.65;
+  }
+
+  /* ── HEADER ── */
+  .hero {
+    background: var(--accent);
+    color: #fff;
+    padding: 60px 48px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -60px; right: -60px;
+    width: 320px; height: 320px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,255,255,0.08);
+  }
+  .hero-inner { max-width: 860px; margin: 0 auto; position: relative; z-index: 1; }
+  .hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: clamp(34px, 5vw, 48px);
+    font-weight: 700;
+    line-height: 1.1;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .hero-subtitle {
+    font-size: 18px;
+    color: rgba(255,255,255,0.80);
+    font-weight: 400;
+    margin-bottom: 24px;
+    max-width: 680px;
+  }
+
+  /* ── PERSONAL INFO BADGES ── */
+  .personal-info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 12px;
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: var(--radius);
+    border: 1px solid rgba(255,255,255,0.10);
+  }
+  .info-item {
+    font-size: 13px;
+    color: rgba(255,255,255,0.75);
+  }
+  .info-item strong { color: #fff; font-weight: 500; }
+
+  /* ── LAYOUT ── */
+  .page { max-width: 860px; margin: 0 auto; padding: 0 48px 80px; }
+  .section { padding-top: 48px; }
+
+  .section-header {
+    display: flex;
+    align-items: baseline;
+    gap: 16px;
+    margin-bottom: 24px;
+  }
+  .section-number {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent-bright);
+    font-weight: 500;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .section-line { flex: 1; height: 1px; background: var(--border); }
+
+  /* ── CARDS & BOXES ── */
+  .card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 28px 32px;
+    box-shadow: var(--shadow);
+  }
+  .card + .card { margin-top: 16px; }
+
+  /* ── TRIPLE FOCUS HIGHLIGHT ── */
+  .core-pillar-box {
+    background: var(--accent-light);
+    border-left: 4px solid var(--accent-mid);
+    padding: 20px 24px;
+    border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    margin-bottom: 24px;
+  }
+  .core-pillar-box p {
+    font-size: 15px;
+    color: var(--accent);
+    line-height: 1.6;
+  }
+
+  /* ── ACADEMIC GRID ── */
+  .academic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+    gap: 16px;
+  }
+  .academic-card {
+    background: var(--paper-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    padding: 24px;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: relative;
+    overflow: hidden;
+  }
+  .academic-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 4px; height: 100%;
+    background: var(--border);
+  }
+  .academic-card.highlight::before {
+    background: var(--accent-bright);
+  }
+  .academic-status {
+    align-self: flex-start;
+    font-size: 10px;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 500;
+    margin-bottom: 12px;
+  }
+  .status-concluido { background: var(--accent-light); color: var(--accent-mid); }
+  .status-cursando { background: var(--amber-light); color: var(--amber); }
+  
+  .academic-course {
+    font-family: 'Playfair Display', serif;
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--ink);
+    margin-bottom: 6px;
+    line-height: 1.3;
+  }
+  .academic-institution { font-size: 14px; color: var(--ink-mid); font-weight: 500; }
+  .academic-year { font-size: 13px; color: var(--ink-muted); margin-top: 6px; }
+
+  /* ── EXPERIENCES ── */
+  .exp-item { margin-bottom: 28px; padding-bottom: 24px; border-bottom: 1px solid var(--border); }
+  .exp-item:last-child { margin-bottom: 0; padding-bottom: 0; border-bottom: none; }
+  .exp-header { display: flex; justify-content: space-between; align-items: flex-start; flex-wrap: wrap; gap: 8px; margin-bottom: 8px; }
+  .exp-title { font-size: 17px; font-weight: 600; color: var(--ink); }
+  .exp-company { font-size: 14px; font-weight: 500; color: var(--accent-bright); }
+  .exp-date { font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-muted); font-weight: 500; }
+  .exp-summary { font-size: 14px; color: var(--ink-mid); line-height: 1.6; }
+
+  /* ── SKILLS ── */
+  .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; }
+  .skill-block { background: var(--paper-card); border: 1px solid var(--border); border-radius: var(--radius-lg); padding: 20px 24px; box-shadow: var(--shadow); }
+  .skill-category { font-size: 11px; letter-spacing: 0.10em; text-transform: uppercase; color: var(--accent-bright); margin-bottom: 12px; font-weight: 500; }
+  .skill-item { display: flex; align-items: center; gap: 8px; font-size: 14px; color: var(--ink-mid); margin-bottom: 6px; }
+  .skill-dot { width: 5px; height: 5px; border-radius: 50%; background: var(--accent-bright); flex-shrink: 0; }
+
+  /* ── FOOTER ── */
+  .footer { border-top: 1px solid var(--border); padding: 40px 48px; max-width: 860px; margin: 0 auto; text-align: center; }
+  .footer-contacts { display: flex; gap: 24px; justify-content: center; flex-wrap: wrap; }
+  .footer-contact { font-size: 14px; color: var(--accent-bright); text-decoration: none; display: flex; align-items: center; gap: 6px; }
+  .footer-contact:hover { text-decoration: underline; }
+
+  @media (max-width: 640px) {
+    .hero { padding: 48px 24px; }
+    .page { padding: 0 24px 60px; }
+    .academic-grid { grid-template-columns: 1fr; }
+    .exp-header { flex-direction: column; gap: 4px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #000; font-size: 12pt; }
+    .hero { background: transparent !important; color: #000 !important; padding: 0 0 20px 0 !important; border-bottom: 2px solid #000; }
+    .hero h1 { color: #000 !important; }
+    .hero-subtitle { color: #333 !important; }
+    .personal-info-grid { background: transparent !important; border: 1px solid #ccc !important; color: #000 !important; padding: 10px !important; }
+    .info-item, .info-item strong { color: #000 !important; }
+    .page { padding: 0 !important; max-width: 100% !important; }
+    .card, .academic-card, .skill-block { background: #fff !important; box-shadow: none !important; border: 1px solid #ccc !important; }
+    .core-pillar-box { background: #f5f5f5 !important; border-left: 4px solid #000 !important; color: #000 !important; }
+    .core-pillar-box p { color: #000 !important; }
+    .section { padding-top: 24px !important; }
+    .footer { display: none; }
+  }
+</style>
+</head>
+<body>
+
+<!-- HERO / CABEÇALHO -->
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Roger Germano de Jesus</h1>
+    <p class="hero-subtitle">Controladoria, Auditoria Contábil &amp; Análise de Dados de Alta Performance</p>
+    
+    <!-- QUADRO DE INFORMAÇÕES PESSOAIS -->
+    <div class="personal-info-grid">
+      <div class="info-item"><strong>Idade:</strong> 41 anos (01/03/1985)</div>
+      <div class="info-item"><strong>Estado Civil:</strong> Solteiro (Noivo)</div>
+      <div class="info-item"><strong>Endereço:</strong> Rua Antonio Isabel de Oliveira, 777, Zona Nova, Tramandaí/RS</div>
+      <div class="info-item"><strong>Disponibilidade:</strong> Atuação Estratégica / Projetos de Dados</div>
+    </div>
+  </div>
+</header>
+
+<main class="page">
+
+  <!-- RESUMO E DIFERENCIAL -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">01</span>
+      <h2 class="section-title">Perfil Executivo Interdisciplinar</h2>
+      <div class="section-line"></div>
+    </div>
+    
+    <div class="core-pillar-box">
+      <p>
+        <strong>O Diferencial de Mercado:</strong> Perfil profissional raríssimo na intersecção de três grandes pilares estratégicos. Sólida base de negócios como <strong>Administrador</strong>; visão de governança, blindagem de caixa e eficiência contábil como especialista em <strong>Auditoria e Controladoria</strong>; combinada com a capacidade técnica de um <strong>Analista de Dados</strong> que projeta bancos de dados, cria pipelines automatizados de ETL e desenvolve modelos preditivos de Machine Learning. Não apenas extrai os dados, mas compreende os impactos contábeis, fiscais e operacionais das tomadas de decisão.
+      </p>
+    </div>
+  </section>
+
+  <!-- FORMAÇÃO ACADÊMICA -->
+  <section class="section" id="formacao">
+    <div class="section-header">
+      <span class="section-number">02</span>
+      <h2 class="section-title">Formação Acadêmica &amp; Especializações</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="academic-grid">
+      <div class="academic-card highlight">
+        <div>
+          <span class="academic-status status-concluido">Concluído</span>
+          <div class="academic-course">Pós-Graduação Lato Sensu em Auditoria Contábil e Controladoria</div>
+          <div class="academic-institution">Uniasselvi</div>
+        </div>
+        <div class="academic-year">Ano de conclusão: 2022 | Foco: Governança, DRE, Custos e Compliance</div>
+      </div>
+
+      <div class="academic-card highlight">
+        <div>
+          <span class="academic-status status-cursando">Em andamento</span>
+          <div class="academic-course">Profissional de Elite em Análise de Dados</div>
+          <div class="academic-institution">EBAC (Escola Britânica de Artes Criativas e Tecnologia)</div>
+        </div>
+        <div class="academic-year">Formação avançada em Python, SQL Server/MySQL, ETL e Machine Learning</div>
+      </div>
+
+      <div class="academic-card">
+        <div>
+          <span class="academic-status status-concluido">Concluído</span>
+          <div class="academic-course">Bacharelado em Administração</div>
+          <div class="academic-institution">Uniasselvi</div>
+        </div>
+        <div class="academic-year">Ano de conclusão: 2021 | Foco: Gestão de Operações e Estratégia</div>
+      </div>
+
+      <div class="academic-card">
+        <div>
+          <span class="academic-status status-cursando">Em andamento</span>
+          <div class="academic-course">Graduação em Ciências Contábeis</div>
+          <div class="academic-institution">Uniasselvi</div>
+        </div>
+        <div class="academic-year">Foco em Contabilidade Gerencial e Estruturas Societárias</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIÊNCIA PROFISSIONAL -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">03</span>
+      <h2 class="section-title">Trajetória Profissional</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="card">
+      
+      <!-- COMERCIAL AVENIDA -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">Gerente Comercial &amp; Inteligência de Dados</span> — <span class="exp-company">Comercial Avenida (Rede Construir)</span>
+          </div>
+          <span class="exp-date">02/2026 — Atual</span>
+        </div>
+        <div class="exp-summary">
+          Gestão completa da operação comercial e implantação de inteligência analítica de dados. Entrega imediata de diagnóstico financeiro estrutural (CMV, Markup, Ponto de Equilíbrio) na segunda semana de contratação. Criação e implementação de modelo preditivo via Machine Learning (Python) para previsão de demanda de produtos, governança e auditoria SQL direta no ERP que identificou R$550.460,08 em receita reprimida. Implementação de dashboards de performance comercial em HTML/Tailwind interligados a pipelines de dados integrados de forma automatizada via n8n. Condução e liderança de equipe com foco em metas e inteligência de mercado.
+        </div>
+      </div>
+
+      <!-- PREFEITURA DE TRAMANDAÍ -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">Chefe de Gabinete</span> — <span class="exp-company">Prefeitura Municipal de Tramandaí / Sec. de Desenvolvimento e Assistência Social</span>
+          </div>
+          <span class="exp-date">02/01/2017 — 31/12/2024</span>
+        </div>
+        <div class="exp-summary">
+          Responsável pela governança administrativa, execução financeira e rígido planejamento orçamentário da Secretaria. Coordenação da prestação de contas governamentais perante órgãos de controle interno e externo (Tribunais de Contas). Redação técnica e elaboração legislativa de leis, decretos e procedimentos operacionais padronizados (POPs). Assessoramento estratégico e político direto do Secretário Municipal, coordenando as relações institucionais com o público e demais organismos do Executivo. Gestão patrimonial e de insumos de processos administrativos complexos, além da formulação de diretrizes integradas voltadas para o atendimento e a preservação da assistência à população do município.
+        </div>
+      </div>
+
+      <!-- CINDAPA -->
+      <div class="exp-item">
+        <div class="exp-header">
+          <div>
+            <span class="exp-title">Supervisor Técnico</span> — <span class="exp-company">Cindapa</span>
+          </div>
+          <span class="exp-date">05/2008 — 03/2012</span>
+        </div>
+        <div class="exp-summary">
+          Gerenciamento operacional e logístico da equipe técnica de instalação de sistemas de alta segurança e vigilância eletrônica. Responsável direto pela otimização de rotas e alocação de pessoal para atendimento ao cliente, gestão física e documental de estoques de suprimentos e desenvolvimento de programas de treinamento contínuo de pessoal. Atuação focada em liderança ativa pelo exemplo, garantindo a redução do índice de ociosidade técnica, elevação drástica da satisfação do cliente final e consequente aumento da lucratividade setorial da organização.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- COMPETÊNCIAS E HABILIDADES -->
+  <section class="section">
+    <div class="section-header">
+      <span class="section-number">04</span>
+      <h2 class="section-title">Matriz de Habilidades Técnicas &amp; Gestão</h2>
+      <div class="section-line"></div>
+    </div>
+
+    <div class="skills-grid">
+      <div class="skill-block">
+        <div class="skill-category">Engenharia &amp; Ciência de Dados</div>
+        <div class="skill-item"><span class="skill-dot"></span>Python Avançado (Pandas, NumPy, Scikit-learn)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Modelos Preditivos e Machine Learning (Regressão)</div>
+        <div class="skill-item"><span class="skill-dot"></span>SQL Relacional (MySQL / SQL Server)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Modelagem de Bancos (Chaves, Constraints, PK/FK)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Pipelines de Processamento de Dados e ETL</div>
+        <div class="skill-item"><span class="skill-dot"></span>Web Scraping Automatizado (BeautifulSoup)</div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">Controladoria, Finanças &amp; Negócios</div>
+        <div class="skill-item"><span class="skill-dot"></span>Auditoria Contábil e Análise Estatística de Balanço</div>
+        <div class="skill-item"><span class="skill-dot"></span>Demonstração do Resultado do Exercício (DRE)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Planejamento Orçamentário e Fluxo de Caixa</div>
+        <div class="skill-item"><span class="skill-dot"></span>Análise Estratégica de Custos, Markup e CMV</div>
+        <div class="skill-item"><span class="skill-dot"></span>Classificação, Curvas ABC e Elasticidade-Preço</div>
+        <div class="skill-item"><span class="skill-dot"></span>Governança Corporativa e Prestação de Contas</div>
+      </div>
+
+      <div class="skill-block">
+        <div class="skill-category">Automação &amp; Arquiteturas</div>
+        <div class="skill-item"><span class="skill-dot"></span>n8n — Orquestração de Fluxos Sem Custo</div>
+        <div class="skill-item"><span class="skill-dot"></span>Dashboards Interativos (Plotly, Tailwind CSS, BI)</div>
+        <div class="skill-item"><span class="skill-dot"></span>Desenvolvimento Mobile Kotlin &amp; Android Studio</div>
+        <div class="skill-item"><span class="skill-dot"></span>Integrações robustas via Webhooks e APIs</div>
+        <div class="skill-item"><span class="skill-dot"></span>Estruturação de CRMs e Funis Comerciais</div>
+        <div class="skill-item"><span class="skill-dot"></span>Rigor Técnico e Validação Empírica (99,8% de Precisão)</div>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-contacts">
+    <a class="footer-contact" href="mailto:rogergj@gmail.com">✉ rogergj@gmail.com</a>
+    <a class="footer-contact" href="tel:+5551990193925">📞 (51) 99019-3925</a>
+    <a class="footer-contact" href="linkedin.com/in/roger-germano-de-jesus-895ba9165" target="_blank">LinkedIn</a>
+    <a class="footer-contact" href="https://rogergermano.github.io/portif-lio/" target="_blank">GitHub</a>
+  </div>
+</footer>
+
+</body>
+</html>
